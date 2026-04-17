@@ -5,14 +5,20 @@
 ![MySQL](https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge&logo=mysql)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-A **modern Todo List CRUD application** built with Laravel.  
-This project demonstrates full CRUD operations with a clean and responsive UI.
+A simple and modern **Todo List CRUD application** built with Laravel.  
+This project demonstrates full **Create, Read, Update, Delete (CRUD)** functionality using Laravel Resource Controller.
 
 ---
 
 ## 🌐 Live Demo
 
-👉 http://127.0.0.1:8000/todos *(replace with real hosted link later)*
+👉 (Add your deployed link here later)
+
+---
+
+## 📂 GitHub Repository
+
+👉 https://github.com/Risad212/Laravel-Todo-List.git
 
 ---
 
@@ -21,10 +27,10 @@ This project demonstrates full CRUD operations with a clean and responsive UI.
 ### 🏠 Todo List Page
 ![Todo List](https://via.placeholder.com/900x400?text=Todo+List+Page)
 
-### ➕ Create Todo Page
+### ➕ Create Todo
 ![Create Todo](https://via.placeholder.com/900x400?text=Create+Todo+Page)
 
-### ✏️ Edit Todo Page
+### ✏️ Edit Todo
 ![Edit Todo](https://via.placeholder.com/900x400?text=Edit+Todo+Page)
 
 ---
@@ -33,9 +39,9 @@ This project demonstrates full CRUD operations with a clean and responsive UI.
 
 - ➕ Create new todos  
 - 📋 View all todos in table format  
-- ✏️ Edit existing todos  
+- ✏️ Edit todos  
 - ❌ Delete todos  
-- 🎨 Clean and modern UI  
+- 🎨 Clean UI design  
 - ⚡ Fast Laravel backend  
 
 ---
@@ -46,7 +52,7 @@ This project demonstrates full CRUD operations with a clean and responsive UI.
 - PHP 8+
 - MySQL
 - Blade Templates
-- HTML5 / CSS3
+- HTML / CSS
 
 ---
 
@@ -60,29 +66,29 @@ This project demonstrates full CRUD operations with a clean and responsive UI.
 
 ---
 
-## 🚀 Installation & Setup
+## 🚀 Installation Guide
 
 ```bash
-# 1. Clone repository
-git clone https://github.com/YOUR_USERNAME/laravel-todo-list.git
-cd laravel-todo-list
+# Clone project
+git clone https://github.com/Risad212/Laravel-Todo-List.git
+cd Laravel-Todo-List
 
-# 2. Install dependencies
+# Install dependencies
 composer install
 
-# 3. Create environment file
+# Create environment file
 cp .env.example .env
 
-# 4. Generate app key
+# Generate app key
 php artisan key:generate
 
-# 5. Configure database in .env
+# Configure DB in .env
 DB_DATABASE=todo_list
 DB_USERNAME=root
 DB_PASSWORD=
 
-# 6. Run migrations
+# Run migrations
 php artisan migrate
 
-# 7. Start server
+# Start server
 php artisan serve
