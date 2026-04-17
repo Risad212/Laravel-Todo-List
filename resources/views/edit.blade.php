@@ -8,27 +8,15 @@
 
 <body>
 
-    <div class="todo-form-wrapper">
-
-        <h2>Edit Todo</h2>
-
-        @if(session('success'))
-        <div class="success-msg">
-            {{ session('success') }}
-        </div>
-        @endif
-
+    <div class="card">
+        <h1>Edit Todo ✍️</h1>
         <form action="{{ route('todos.update', $todo->id) }}" method="POST">
             @csrf
             @method('PUT')
-
             <input type="text" name="todo" value="{{ $todo->todo }}">
 
-            <button type="submit" class="save-btn">
-                Update Todo
-            </button>
+            <button type="submit">Update Todo</button>
         </form>
-
     </div>
 
 </body>
