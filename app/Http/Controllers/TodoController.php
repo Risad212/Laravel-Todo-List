@@ -49,7 +49,7 @@ class TodoController extends Controller
             ->where('user_id', Auth::id())
             ->firstOrFail();
 
-        return view('todos.edit', compact('todo'));
+        return view('edit', compact('todo'));
     }
 
     public function update(Request $request, $id)
