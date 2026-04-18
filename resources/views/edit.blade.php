@@ -1,24 +1,15 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
+@section('content')
 
-<head>
-    <title>Edit Todo</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
+<div class="card">
+    <h1>Edit Todo ✍️</h1>
+    <form action="{{ route('todos.update', $todo->id) }}" method="POST">
+        @csrf
+        @method('PUT')
+        <input type="text" name="todo" value="{{ $todo->todo }}">
 
-<body>
+        <button type="submit">Update Todo</button>
+    </form>
+</div>
 
-    <div class="card">
-        <h1>Edit Todo ✍️</h1>
-        <form action="{{ route('todos.update', $todo->id) }}" method="POST">
-            @csrf
-            @method('PUT')
-            <input type="text" name="todo" value="{{ $todo->todo }}">
-
-            <button type="submit">Update Todo</button>
-        </form>
-    </div>
-
-</body>
-
-</html>
+@endsection

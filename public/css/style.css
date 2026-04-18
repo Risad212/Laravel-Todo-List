@@ -1,10 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background: #f5f6fa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
 .card {
@@ -13,6 +13,8 @@ body {
     width: 400px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    margin-top: 200px;
 }
 
 h1 {
@@ -185,4 +187,139 @@ button:hover {
     background: #d97706;
     transform: translateY(-1px);
     box-shadow: 0 6px 14px rgba(245, 158, 11, 0.3);
+}
+
+/*----- Auth style --------*/
+/* ===== AUTH UI STYLES ===== */
+
+.auth-ui-wrapper {
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-ui-card {
+    width: 426px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.auth-ui-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.auth-ui-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+.auth-ui-input:focus {
+    border-color: #2563eb;
+}
+
+.auth-ui-btn {
+    width: 100%;
+    padding: 12px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.auth-ui-btn:hover {
+    background: #1d4ed8;
+}
+
+.auth-ui-error {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.auth-ui-logout-btn {
+    background: #ef4444;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.auth-ui-logout-btn:hover {
+    background: #dc2626;
+}
+
+/* ===== HEADER UI ===== */
+
+.header-ui {
+    padding: 12px 20px;
+    background: #f3f4f6;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    gap: 23px;
+}
+
+.header-ui-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.header-ui-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.header-ui-login {
+    padding: 6px 12px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.header-ui-login:hover {
+    background: #1d4ed8;
+}
+
+.header-ui-logout {
+    padding: 6px 12px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.header-ui-logout:hover {
+    background: #dc2626;
+}
+
+.auth-link {
+    margin-top: 20px;
+}
+
+.auth-link a {
+    color: #1d4ed8;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.auth-link a:hover {
+    color: #111827;
 }
