@@ -28,7 +28,7 @@
 
             <div class="auth-link">
                 Don't have an account?
-                <a href="{{ route('login') }}">Register</a>
+                <a href="{{ route('login') }}">Login</a>
             </div>
         </form>
 

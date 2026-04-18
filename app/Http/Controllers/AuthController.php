@@ -53,6 +53,6 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('todos');
+        return redirect()->route('todos.index');
     }
 }

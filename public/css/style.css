@@ -283,6 +283,8 @@ button:hover {
     display: flex;
     gap: 10px;
     align-items: center;
+    justify-content: end;
+    padding: 0 24px;
 }
 
 .header-ui-login {
@@ -322,4 +324,9 @@ button:hover {
 
 .auth-link a:hover {
     color: #111827;
+}
+
+.welcome-message{
+    text-align: center;
+    font-size: 40px;
 }

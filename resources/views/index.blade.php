@@ -2,10 +2,11 @@
 
 @section('content')
 
-<div class="todo-table-wrapper">
+<h1 class="welcome-message"> Welcome, {{ Auth::user()->name }} 👋</h1>
 
+<div class="todo-table-wrapper">
     <div class="top-bar">
-        <h1>Todo List</h1>
+        <h2>Todo List</h2>
         <a href="{{ route('todos.create') }}" class="add-btn">+ Add Todo</a>
     </div>
 
