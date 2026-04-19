@@ -17,7 +17,7 @@ class TodoController extends Controller
             $query->where('todo', 'like', '%' . $request->search . '%');
         }
 
-        $todos = $query->get();
+        $todos = $query->paginate(10)->withQueryString();
 
         return view('index', compact('todos'));
     }

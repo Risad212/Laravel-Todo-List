@@ -65,7 +65,10 @@
                 @endforelse
             </tbody>
         </table>
-
+        <!-- 📄 Pagination -->
+        <div class="pagination-wrapper">
+            {{ $todos->links() }}
+        </div>
     </div>
 </div>
 
