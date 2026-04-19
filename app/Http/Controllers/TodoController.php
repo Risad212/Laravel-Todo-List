@@ -9,9 +9,16 @@ use Illuminate\Support\Facades\Redirect;
 
 class TodoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $todos = Todo::where('user_id', Auth::id())->get();
+        $query = Todo::where('user_id', Auth::id());
+
+        if ($request->filled('search')) {
+            $query->where('todo', 'like', '%' . $request->search . '%');
+        }
+
+        $todos = $query->get();
+
         return view('index', compact('todos'));
     }
 

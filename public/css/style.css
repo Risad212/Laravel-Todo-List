@@ -35,17 +35,18 @@ input:focus {
     border-color: #4f46e5;
 }
 
-button {
+.login-btn {
     width: 100%;
-    padding: 12px;
+    padding: 16px 27px;
     background: #4f46e5;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    line-height: 1;
 }
 
-button:hover {
+.login-btn:hover {
     background: #4338ca;
 }
 
@@ -189,7 +190,6 @@ button:hover {
     box-shadow: 0 6px 14px rgba(245, 158, 11, 0.3);
 }
 
-/*----- Auth style --------*/
 /* ===== AUTH UI STYLES ===== */
 
 .auth-ui-wrapper {
@@ -326,7 +326,48 @@ button:hover {
     color: #111827;
 }
 
-.welcome-message{
+.welcome-message {
     text-align: center;
     font-size: 40px;
+    text-transform: capitalize;
+}
+
+/*----- search box -------*/
+.search-box {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 17px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.search-box input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.search-box button {
+    padding: 16px 18px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.search-box button:hover {
+    background: #1d4ed8;
 }

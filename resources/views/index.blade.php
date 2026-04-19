@@ -5,6 +5,14 @@
 <h1 class="welcome-message"> Welcome, {{ Auth::user()->name }} 👋</h1>
 
 <div class="todo-table-wrapper">
+    <form method="GET" action="{{ route('todos.index') }}" class="search-box">
+        <input
+            type="text"
+            name="search"
+            placeholder="Search todo..."
+            value="{{ request('search') }}">
+        <button type="submit">Search</button>
+    </form>
     <div class="top-bar">
         <h2>Todo List</h2>
         <a href="{{ route('todos.create') }}" class="add-btn">+ Add Todo</a>

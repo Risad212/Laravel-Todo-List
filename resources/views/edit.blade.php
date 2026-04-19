@@ -8,7 +8,7 @@
         @method('PUT')
         <input type="text" name="todo" value="{{ $todo->todo }}">
 
-        <button type="submit">Update Todo</button>
+        <button class="login-btn" type="submit">Update Todo</button>
     </form>
 </div>
 

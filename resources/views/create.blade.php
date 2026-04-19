@@ -16,7 +16,7 @@
 
         <input type="text" name="todo" placeholder="Enter your todo">
 
-        <button type="submit">Save Todo</button>
+        <button class="login-btn" type="submit">Save Todo</button>
     </form>
 
     <a class="link" href="{{ route('todos.index') }}">← Back to list</a>
