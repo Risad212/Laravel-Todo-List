@@ -1,5 +1,8 @@
-let timer;
+/**
+ *  Search Todo
+ */
 
+let timer;
 document.addEventListener("DOMContentLoaded", function () {
     const search = document.getElementById("search");
 
@@ -19,4 +22,47 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
         }, 300);
     });
+});
+
+
+/**
+ * Add Todo
+ */
+document.addEventListener("DOMContentLoaded", function () {
+
+    if (document.querySelector(".success-message")) {
+        document.querySelector(".success-message").style = 'display: none';
+    }
+    const form = document.querySelector(".todo-form-add");
+
+    if (!form) {
+        return;
+    }
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let todo = document.querySelector(".todo-input").value;
+
+        fetch("/todos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content
+            },
+            body: JSON.stringify({ todo })
+        })
+            .then(res => res.json())
+            .then((data) => {
+                document.querySelector(".todo-input").value = "";
+                document.querySelector(".success-message").style = 'display: block'
+                document.querySelector(".success-message").innerText = data.message;
+
+                setTimeout(() => {
+                    document.querySelector(".success-message").style = 'display: none';
+                }, 3000)
+            });
+
+    });
+
 });

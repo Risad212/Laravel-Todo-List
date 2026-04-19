@@ -37,7 +37,11 @@ class TodoController extends Controller
             'user_id' => $user->id
         ]);
 
-        return back()->with('success', 'Todo created successfully!');
+        return response()->json([
+            'success' => true,
+            'message' => 'Todo created successfully!',
+            'todo' => $request->todo
+        ]);
     }
 
     public function destroy($id)

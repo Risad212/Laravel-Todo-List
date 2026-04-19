@@ -35,7 +35,7 @@ input:focus {
     border-color: #4f46e5;
 }
 
-.login-btn {
+.btn {
     width: 100%;
     padding: 16px 27px;
     background: #4f46e5;
@@ -418,4 +418,14 @@ input:focus {
     width: 16px;
     height: 16px;
     color: #6b7280;
+}
+
+/*--- sucess message ---*/
+.success-message {
+    background: green;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 14px;
 }
