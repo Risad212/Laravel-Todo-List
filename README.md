@@ -1,94 +1,50 @@
-# 🚀 Laravel Todo List Application
+# Laravel Todo List Application
 
-![Laravel](https://img.shields.io/badge/Laravel-10.x-red?style=for-the-badge&logo=laravel)
-![PHP](https://img.shields.io/badge/PHP-8+-blue?style=for-the-badge&logo=php)
-![MySQL](https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge&logo=mysql)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
-A simple and modern **Todo List CRUD application** built with Laravel.  
-This project demonstrates full **Create, Read, Update, Delete (CRUD)** functionality using Laravel Resource Controller.
+A simple Laravel CRUD Todo List application with authentication and AJAX-based interactions for a smooth user experience.
 
 ---
 
-## 🌐 Live Demo
+## Features
 
-👉 (Add your deployed link here later)
-
----
-
-## 📂 GitHub Repository
-
-👉 https://github.com/Risad212/Laravel-Todo-List.git
-
----
-
-## 📸 Screenshots
-
-### 🏠 Todo List Page
-![Todo List](https://via.placeholder.com/900x400?text=Todo+List+Page)
-
-### ➕ Create Todo
-![Create Todo](https://via.placeholder.com/900x400?text=Create+Todo+Page)
-
-### ✏️ Edit Todo
-![Edit Todo](https://via.placeholder.com/900x400?text=Edit+Todo+Page)
+- Authentication (Login / Logout)
+- Authorization (Protected Routes)
+- Reusable Blade Components
+- UI Components (Buttons, Tables, Forms)
+- Create Todo (AJAX)
+- View Todo List
+- Edit Todo (AJAX)
+- Delete Todo (AJAX)
+- Search Todo (AJAX)
+- Pagination (AJAX)
+- Fully dynamic UI without page reload
 
 ---
 
-## ✨ Features
-
-- ➕ Create new todos  
-- 📋 View all todos in table format  
-- ✏️ Edit todos  
-- ❌ Delete todos  
-- 🎨 Clean UI design  
-- ⚡ Fast Laravel backend  
-
----
-
-## 🛠️ Tech Stack
-
-- Laravel 10+
-- PHP 8+
-- MySQL
-- Blade Templates
-- HTML / CSS
-
----
-
-## 📦 Requirements
-
-- PHP >= 8.1  
-- Composer  
-- MySQL  
-- Git  
-- Laravel CLI  
-
----
-
-## 🚀 Installation Guide
+## Installation Guide
 
 ```bash
 # Clone project
 git clone https://github.com/Risad212/Laravel-Todo-List.git
+
+# Enter project directory
 cd Laravel-Todo-List
 
 # Install dependencies
 composer install
 
-# Create environment file
+# Copy environment file
 cp .env.example .env
 
-# Generate app key
+# Generate application key
 php artisan key:generate
 
-# Configure DB in .env
-DB_DATABASE=todo_list
+# Configure database in .env
+DB_DATABASE=your_database
 DB_USERNAME=root
 DB_PASSWORD=
 
 # Run migrations
 php artisan migrate
 
-# Start server
+# Start development server
 php artisan serve
