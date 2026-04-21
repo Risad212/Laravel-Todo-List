@@ -1,5 +1,7 @@
 /**
- *  Search Todo
+ * ===================
+ *    serch todo list
+ * ==================
  */
 
 let timer;
@@ -26,7 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /**
- * Add Todo
+ * ===================
+ *    Add tod List
+ * ==================
  */
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -65,4 +69,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+});
+
+
+/**
+ * ===================
+ *   Delete Todo List
+ * ==================
+ */
+document.addEventListener("click", function (e) {
+    const btn = e.target.closest(".delete");
+    if (!btn) return;
+
+    const id = btn.dataset.id;
+
+    fetch(`/todos/${id}`, {
+        method: "POST",
+        headers: {
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content
+        }
+    })
+        .then(() => btn.closest("tr").remove());
 });

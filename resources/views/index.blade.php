@@ -35,7 +35,7 @@
 
             <tbody>
                 @forelse($todos as $todo)
-                <tr>
+                <tr data-id="{{ $todo->id }}">
                     <td>{{ $todo->id }}</td>
                     <td>{{ $todo->todo }}</td>
 
@@ -45,14 +45,9 @@
                             Edit
                         </a>
 
-                        <form action="{{ route('todos.destroy', $todo->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-
-                            <button class="btn delete">
-                                Delete
-                            </button>
-                        </form>
+                        <button type="button" class="delete btn" data-id="{{ $todo->id }}">
+                            Delete
+                        </button>
 
                     </td>
                 </tr>
@@ -65,10 +60,10 @@
                 @endforelse
             </tbody>
         </table>
-        <!-- 📄 Pagination -->
-        <div class="pagination-wrapper">
-            {{ $todos->links() }}
-        </div>
+    </div>
+    <!-- 📄 Pagination -->
+    <div class="pagination-wrapper">
+        {{ $todos->links() }}
     </div>
 </div>
 
