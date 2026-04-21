@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Todo;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 
 class TodoController extends Controller
 {
@@ -78,6 +77,10 @@ class TodoController extends Controller
             'todo' => $request->todo
         ]);
 
-        return redirect()->route('todos.index');
+        return response()->json([
+            'success' => true,
+            'message' => 'Todo update successfully!',
+            'todo' => $todo
+        ]);
     }
 };

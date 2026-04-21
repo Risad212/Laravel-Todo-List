@@ -91,3 +91,49 @@ document.addEventListener("click", function (e) {
     })
         .then(() => btn.closest("tr").remove());
 });
+
+
+/**
+ * ===================
+ *   Update Todo List
+ * ==================
+ */
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.querySelector(".todo-form-edit");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let todo = document.querySelector(".todo-input").value;
+
+        let id = form.dataset.id;
+
+        fetch(`/todos/${id}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content
+            },
+            body: JSON.stringify({
+                todo: todo,
+                _method: "PUT"
+            })
+        })
+            .then(res => res.json())
+            .then((data) => {
+                if (data.success) {
+                    const msg = document.querySelector(".success-message");
+                    msg.style.display = 'block';
+                    msg.innerText = data.message;
+
+                    setTimeout(() => {
+                        msg.style.display = 'none';
+                    }, 3000);
+                }
+            })
+            .catch(err => console.error(err));
+    });
+
+});
