@@ -50,7 +50,11 @@ class TodoController extends Controller
             ->firstOrFail();
 
         $todo->delete();
-        return back()->with('success', 'Todo deleted successfully!');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Deleted successfully'
+        ]);
     }
 
     public function edit($id)

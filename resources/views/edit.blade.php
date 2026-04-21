@@ -14,7 +14,7 @@
             value="{{ $todo->todo }}">
 
         <button class="btn add-todo-btn" type="submit">
-            Save Todo
+            Update Todo
         </button>
     </form>
 

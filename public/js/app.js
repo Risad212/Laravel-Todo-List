@@ -3,7 +3,6 @@
  *    serch todo list
  * ==================
  */
-
 let timer;
 document.addEventListener("DOMContentLoaded", function () {
     const search = document.getElementById("search");
@@ -86,10 +85,20 @@ document.addEventListener("click", function (e) {
     fetch(`/todos/${id}`, {
         method: "POST",
         headers: {
+            "Content-Type": "application/json",
             "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content
-        }
+        },
+        body: JSON.stringify({
+            _method: "DELETE"
+        })
     })
-        .then(() => btn.closest("tr").remove());
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                btn.closest("tr").remove(); // remove only if DB delete success
+            }
+        })
+        .catch(err => console.error(err));
 });
 
 
