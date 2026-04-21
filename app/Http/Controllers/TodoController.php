@@ -18,6 +18,10 @@ class TodoController extends Controller
 
         $todos = $query->paginate(10)->withQueryString();
 
+        if ($request->ajax()) {
+            return response()->json($todos);
+        }
+
         return view('index', compact('todos'));
     }
 

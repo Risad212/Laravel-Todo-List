@@ -95,7 +95,7 @@ document.addEventListener("click", function (e) {
         .then(res => res.json())
         .then(data => {
             if (data.success) {
-                btn.closest("tr").remove(); // remove only if DB delete success
+                btn.closest("tr").remove();
             }
         })
         .catch(err => console.error(err));
@@ -144,5 +144,34 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch(err => console.error(err));
     });
+
+});
+
+
+/**
+ * ===================
+ *   Pagination Todo list
+ * ==================
+ */
+document.addEventListener("click", function (e) {
+
+    const link = e.target.closest("#pagination a");
+    if (!link) return;
+
+    e.preventDefault();
+
+    fetch(link.href)
+        .then(res => res.text())
+        .then(html => {
+
+            const doc = new DOMParser().parseFromString(html, "text/html");
+
+            document.getElementById("todo-results").innerHTML =
+                doc.getElementById("todo-results").innerHTML;
+
+            document.querySelector(".pagination-wrapper").innerHTML =
+                doc.querySelector(".pagination-wrapper").innerHTML;
+
+        });
 
 });

@@ -62,7 +62,7 @@
         </table>
     </div>
     <!-- 📄 Pagination -->
-    <div class="pagination-wrapper">
+    <div id="pagination" class="pagination-wrapper">
         {{ $todos->links() }}
     </div>
 </div>

@@ -13,7 +13,7 @@
             type="text"
             value="{{ $todo->todo }}">
 
-        <button class="btn add-todo-btn" type="submit">
+        <button  class="btn add-todo-btn" type="button">
             Update Todo
         </button>
     </form>
