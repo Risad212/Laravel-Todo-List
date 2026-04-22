@@ -17,12 +17,21 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $credential = $request->only('email', 'password');
 
-        if (Auth::attempt($credential)) {
-            return redirect('todos');
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('todos')->with('success', 'Login successful');
         }
-        return back()->withErrors(['email' => 'Invalid login']);
+
+
+        return back()->withErrors([
+            'email' => 'Email or password is incorrect',
+        ])->onlyInput('email');
     }
 
     public function logout()
@@ -39,20 +48,21 @@ class AuthController extends Controller
     public function register(Request $request)
     {
 
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6'
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6|confirmed',
+        ], [
+            'email.unique' => 'This email is already taken',
+            'password.confirmed' => 'Passwords do not match',
         ]);
 
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
         ]);
 
-        Auth::login($user);
-
-        return redirect()->route('todos.index');
+        return redirect('/login')->with('success', 'Account created!');
     }
 }
