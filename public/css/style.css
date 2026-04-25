@@ -419,13 +419,3 @@ input:focus {
     height: 16px;
     color: #6b7280;
 }
-
-/*--- sucess message ---*/
-.success-message {
-    background: green;
-    color: white;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    font-size: 14px;
-}

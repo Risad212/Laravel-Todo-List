@@ -5,9 +5,9 @@
 <div class="card">
     <h1>Create Todo ✍️</h1>
 
-    <div class="success-message">
-
-    </div>
+    @if(session('success'))
+      <div id="toast">{{ session('success') }}</div>
+    @endif
 
     <form class="todo-form-add" action="{{ route('todos.store') }}" method="POST">
         @csrf

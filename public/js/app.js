@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /**
  * ===================
- *    Add tod List
+ *    Add Todo List
  * ==================
  */
 document.addEventListener("DOMContentLoaded", function () {
@@ -45,25 +45,34 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        let todo = document.querySelector(".todo-input").value;
+        const todoInput = document.querySelector(".todo-input");
 
         fetch("/todos", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "Accept": "application/json",
                 "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content
             },
-            body: JSON.stringify({ todo })
+            body: JSON.stringify({
+                todo: todoInput.value
+            })
         })
-            .then(res => res.json())
-            .then((data) => {
-                document.querySelector(".todo-input").value = "";
-                document.querySelector(".success-message").style = 'display: block'
-                document.querySelector(".success-message").innerText = data.message;
+            .then(async (res) => {
+                const data = await res.json();
 
-                setTimeout(() => {
-                    document.querySelector(".success-message").style = 'display: none';
-                }, 3000)
+                if (!res.ok) {
+                    throw new Error(data.message || "Something went wrong");
+                }
+
+                return data;
+            })
+            .then((data) => {
+                todoInput.value = "";
+                toastr.success(data.message);
+            })
+            .catch((error) => {
+                toastr.error(error.message);
             });
 
     });
@@ -95,7 +104,10 @@ document.addEventListener("click", function (e) {
         .then(res => res.json())
         .then(data => {
             if (data.success) {
+                toastr.success(data.message);
                 btn.closest("tr").remove();
+            } else {
+                toastr.error("Delete failed!");
             }
         })
         .catch(err => console.error(err));
@@ -115,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        let todo = document.querySelector(".todo-input").value;
+        let todo = document.querySelector(".edit-input").value;
 
         let id = form.dataset.id;
 
@@ -123,6 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "Accept": "application/json",
                 "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content
             },
             body: JSON.stringify({
@@ -133,13 +146,9 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(res => res.json())
             .then((data) => {
                 if (data.success) {
-                    const msg = document.querySelector(".success-message");
-                    msg.style.display = 'block';
-                    msg.innerText = data.message;
-
-                    setTimeout(() => {
-                        msg.style.display = 'none';
-                    }, 3000);
+                    toastr.success(data.message);
+                } else {
+                    toastr.success(data.message);
                 }
             })
             .catch(err => console.error(err));
@@ -148,7 +157,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-/**
+
+/*
  * ===================
  *   Pagination Todo list
  * ==================

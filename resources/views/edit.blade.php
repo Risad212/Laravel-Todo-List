@@ -5,15 +5,13 @@
 <div class="card">
     <h1>Edit Todo ✍️</h1>
 
-    <div class="success-message" style="display:none;"></div>
-
     <form class="todo-form-edit" data-id="{{ $todo->id }}">
         <input
-            class="todo-input"
+            class="edit-input"
             type="text"
             value="{{ $todo->todo }}">
 
-        <button  class="btn add-todo-btn" type="button">
+        <button class="btn add-todo-btn" type="submit">
             Update Todo
         </button>
     </form>
