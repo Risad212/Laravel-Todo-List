@@ -193,7 +193,6 @@ document.addEventListener("click", function (e) {
  * ==================
  */
 const clearBtn = document.querySelector('.clear-btn');
-
 if (clearBtn) {
     clearBtn.onclick = () => {
 
@@ -209,6 +208,7 @@ if (clearBtn) {
                 if (data.success) {
                     toastr.success(data.message);
                     document.getElementById('todo-body').innerHTML = '';
+                    checkEmptyTable();
                 }
 
                 if (!data.success) {
@@ -230,5 +230,22 @@ if (clearBtn) {
  *   Table
  * ==================
  */
+function checkEmptyTable() {
+    const body = document.getElementById('todo-body');
+    const empty = document.querySelector('.empty-message');
+
+    if (!body || !empty) return;
+
+    if (body.children.length === 0) {
+        empty.style.display = 'block';
+    } else {
+        empty.style.display = 'none';
+    }
+
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    checkEmptyTable();
+});
 
 
