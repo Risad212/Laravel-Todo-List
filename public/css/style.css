@@ -466,3 +466,45 @@ input:focus {
     cursor: pointer;
     user-select: none;
 }
+
+/** forgot password **/
+.auth-login-extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0 18px;
+}
+
+/* Remember Me */
+.rm-remember {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rm-remember input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    accent-color: #2563eb;
+    cursor: pointer;
+}
+
+.rm-remember label {
+    font-size: 13px;
+    color: #374151;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Forgot password link */
+.auth-forgot-link {
+    font-size: 13px;
+    color: #2563eb;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.auth-forgot-link:hover {
+    text-decoration: underline;
+    color: #1d4ed8;
+}

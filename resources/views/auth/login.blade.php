@@ -19,15 +19,27 @@
 
             <input class="auth-ui-input" type="password" name="password" placeholder="Password" required>
 
-            <button class="auth-ui-btn" type="submit">Login</button>
-            <div class="rm-remember">
-                <input type="checkbox" name="remember" id="remember">
-                <label for="remember">Remember Me</label>
+            <!-- Remember + Forgot section -->
+            <div class="auth-login-extra">
+
+                <div class="rm-remember">
+                    <input type="checkbox" name="remember" id="remember">
+                    <label for="remember">Remember Me</label>
+                </div>
+
+                <a class="auth-forgot-link" href="{{ route('password.request') }}">
+                    Forgot Password?
+                </a>
+
             </div>
+
+            <button class="auth-ui-btn" type="submit">Login</button>
+
             <div class="auth-link">
                 Don't have an account?
                 <a href="{{ route('register') }}">Register</a>
             </div>
+
         </form>
 
     </div>
