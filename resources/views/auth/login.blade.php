@@ -20,6 +20,10 @@
             <input class="auth-ui-input" type="password" name="password" placeholder="Password" required>
 
             <button class="auth-ui-btn" type="submit">Login</button>
+            <div class="rm-remember">
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">Remember Me</label>
+            </div>
             <div class="auth-link">
                 Don't have an account?
                 <a href="{{ route('register') }}">Register</a>

@@ -443,3 +443,26 @@ input:focus {
     text-align: center;
     margin-top: 10px;
 }
+
+/** remember **/
+.rm-remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.rm-remember input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #2563eb;
+    cursor: pointer;
+    margin: 0;
+}
+
+.rm-remember label {
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    user-select: none;
+}
