@@ -192,23 +192,43 @@ document.addEventListener("click", function (e) {
  *   Clear Todo list
  * ==================
  */
-document.querySelector('.clear-btn').onclick = () => {
+const clearBtn = document.querySelector('.clear-btn');
 
-    fetch('/todos/clear', {
-        method: 'DELETE',
-        headers: {
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-            'Accept': 'application/json'
-        }
-    })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                toastr.success(data.message);
-                document.getElementById('todo-results').innerHTML = '';
+if (clearBtn) {
+    clearBtn.onclick = () => {
+
+        fetch('/todos/clear', {
+            method: 'DELETE',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                'Accept': 'application/json'
             }
         })
-        .catch(() => {
-            toastr.error('Something went wrong!');
-        });
-};
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    toastr.success(data.message);
+                    document.getElementById('todo-body').innerHTML = '';
+                }
+
+                if (!data.success) {
+                    toastr.warning(data.message);
+                    return;
+                }
+            })
+            .catch(() => {
+                toastr.error('Something went wrong!');
+            });
+    };
+}
+
+
+/*
+ * ===================
+ *   Show Not Found
+ *   Message for Empty
+ *   Table
+ * ==================
+ */
+
+

@@ -437,3 +437,9 @@ input:focus {
 .clear-btn:hover {
     background: #dc2626;
 }
+
+.empty-message {
+    display: none;
+    text-align: center;
+    margin-top: 10px;
+}

@@ -94,6 +94,13 @@ class TodoController extends Controller
 
     public function clear()
     {
+        if (Todo::count() === 0) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Table is already empty'
+            ]);
+        }
+
         Todo::query()->delete();
 
         return response()->json([
