@@ -185,3 +185,30 @@ document.addEventListener("click", function (e) {
         });
 
 });
+
+
+/*
+ * ===================
+ *   Clear Todo list
+ * ==================
+ */
+document.querySelector('.clear-btn').onclick = () => {
+
+    fetch('/todos/clear', {
+        method: 'DELETE',
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+            'Accept': 'application/json'
+        }
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                toastr.success(data.message);
+                document.getElementById('todo-results').innerHTML = '';
+            }
+        })
+        .catch(() => {
+            toastr.error('Something went wrong!');
+        });
+};

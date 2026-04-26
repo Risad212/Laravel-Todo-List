@@ -65,6 +65,8 @@
     <div id="pagination" class="pagination-wrapper">
         {{ $todos->links() }}
     </div>
+
+    <button class="clear-btn">Clear All</button>
 </div>
 
 @endsection

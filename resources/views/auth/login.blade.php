@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
 
-<head>
-    <title>Login</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-
+@section('content')
 
 <div class="auth-ui-wrapper">
 
@@ -35,6 +30,4 @@
 
 </div>
 
-</body>
-
-</html>
+@endsection

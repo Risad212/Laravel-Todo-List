@@ -19,6 +19,9 @@ Route::get('/register', [AuthController::class, 'showRegister'])->name('register
 Route::post('/register', [AuthController::class, 'register']);
 
 
+Route::delete('/todos/clear', [TodoController::class, 'clear']);
+
+
 Route::middleware('auth')->group(function () {
     Route::resource('todos', TodoController::class);
 });

@@ -91,4 +91,14 @@ class TodoController extends Controller
             'todo' => $todo
         ]);
     }
+
+    public function clear()
+    {
+        Todo::query()->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'All todos cleared'
+        ]);
+    }
 };
