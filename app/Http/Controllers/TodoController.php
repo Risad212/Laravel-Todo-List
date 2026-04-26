@@ -32,6 +32,18 @@ class TodoController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'todo' => 'required|string'
+        ]);
+
+        $exists = Todo::where('todo', $request->todo)->exists();
+
+        if ($exists) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Todo already exists'
+            ]);
+        }
 
         $user = Auth::user();
 

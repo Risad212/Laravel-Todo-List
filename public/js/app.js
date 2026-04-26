@@ -68,6 +68,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 return data;
             })
             .then((data) => {
+                if (!data.success) {
+                    toastr.warning(data.message);
+                    return;
+                }
                 todoInput.value = "";
                 toastr.success(data.message);
             })
